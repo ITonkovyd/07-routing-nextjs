@@ -12,19 +12,23 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
-import { fetchAllNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api";
 
 import css from "./Notes.module.css";
 
-const NotesClient = () => {
+interface NoteClientProps {
+  tag?: string;
+}
+
+const NotesClient = ({ tag }: NoteClientProps) => {
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [debouncedQuery] = useDebounce(searchQuery, 1000);
 
   const { data, isSuccess, isError } = useQuery({
-    queryKey: ["notes", page, debouncedQuery],
-    queryFn: () => fetchAllNotes(page, debouncedQuery),
+    queryKey: ["notes", page, debouncedQuery, tag],
+    queryFn: () => fetchNotes(page, debouncedQuery, tag || ""),
     placeholderData: keepPreviousData,
   });
 
