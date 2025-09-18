@@ -27,7 +27,7 @@ import css from "./Notes.module.css";
 
 
 interface NoteClientProps {
-  tag?: string;
+  tag?: string | null;
 }
 
 const NotesClient = ({ tag }: NoteClientProps) => {

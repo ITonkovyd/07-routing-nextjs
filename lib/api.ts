@@ -25,8 +25,8 @@ const instance = axios.create({
 
 export const fetchNotes = async (
   page: number,
-  query = "",
-  tag = ""
+  query: string | null = null,
+  tag: string | null = null
 ): Promise<fetchNotesResponse> => {
   const res = await instance.get<fetchNotesResponse>("/notes", {
     params: {
