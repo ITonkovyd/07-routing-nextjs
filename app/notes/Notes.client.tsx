@@ -4,8 +4,12 @@ import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { toast, Toaster } from "react-hot-toast";
 import { useDebounce } from "use-debounce";
 
+
+
 import React, { useCallback } from "react";
 import { useState, useEffect } from "react";
+
+
 
 import Modal from "@/components/Modal/Modal";
 import NoteForm from "@/components/NoteForm/NoteForm";
@@ -14,7 +18,13 @@ import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import { fetchNotes } from "@/lib/api";
 
+
+
 import css from "./Notes.module.css";
+
+
+
+
 
 interface NoteClientProps {
   tag?: string;
@@ -28,7 +38,7 @@ const NotesClient = ({ tag }: NoteClientProps) => {
 
   const { data, isSuccess, isError } = useQuery({
     queryKey: ["notes", page, debouncedQuery, tag],
-    queryFn: () => fetchNotes(page, debouncedQuery, tag || ""),
+    queryFn: () => fetchNotes(page, debouncedQuery, tag),
     placeholderData: keepPreviousData,
   });
 

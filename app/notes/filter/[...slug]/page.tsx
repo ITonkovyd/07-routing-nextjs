@@ -1,4 +1,9 @@
-import { HydrationBoundary, dehydrate, QueryClient} from "@tanstack/react-query";
+import {
+  HydrationBoundary,
+  dehydrate,
+  QueryClient,
+} from "@tanstack/react-query";
+
 import NotesClient from "../../Notes.client";
 
 type Props = {
@@ -7,9 +12,8 @@ type Props = {
 
 export default async function FilterPage({ params }: Props) {
   const queryClient = new QueryClient();
-  
   const { slug } = await params;
-  const selectedTag = slug?.at(0) === "All" ? "" : slug?.at(0);
+  const selectedTag = slug?.at(0) === "all" ? "" : slug?.at(0);
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

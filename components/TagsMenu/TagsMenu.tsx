@@ -33,7 +33,7 @@ const TagsMenu = () => {
           {TAGS.map((tag) => (
             <li key={tag} className={css.menuItem}>
               <Link
-                href={`/notes/filter/${tag}`}
+                href={`/notes/filter/${tag === "All notes" ? "all" : tag}`}
                 className={css.menuLink}
                 onClick={() => setIsOpen(false)}
               >
