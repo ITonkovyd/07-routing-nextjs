@@ -1,4 +1,4 @@
-import NoteDetailsClient from "@/app/notes/[id]/NotePreview.client";
+import NoteDetailsClient from "@/app/notes/[id]/NoteDetails.client";
 import Modal from "@/components/Modal/Modal";
 
 const NotePreview = async () => {
