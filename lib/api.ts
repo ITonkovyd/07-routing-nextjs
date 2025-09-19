@@ -1,12 +1,5 @@
 import axios from "axios";
-
-
-
 import type { Note, BaseNoteParams } from "@/types/note.ts";
-
-
-
-
 
 const BASE_URL = "https://notehub-public.goit.study/api";
 const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;

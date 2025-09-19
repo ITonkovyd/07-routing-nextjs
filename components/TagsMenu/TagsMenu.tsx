@@ -1,11 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
 import Link from "next/link";
-
 import { noteTag } from "@/types/note";
-
 import css from "./TagsMenu.module.css";
 
 type ValidTags = noteTag | "All notes";

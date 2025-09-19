@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import css from "./SidebarNotes.module.css";
-import { noteTag } from "@/types/note";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { noteTag } from "@/types/note";
+import css from "./SidebarNotes.module.css";
 
 type ValidTags = noteTag | "All notes";
 
@@ -27,7 +27,10 @@ const SidebarNotes = () => {
   return (
     <ul className={css.menuList}>
       {TAGS.map((tag) => (
-        <li className={`${css.menuItem} ${isActive(tag) ? css.active : ""}`} key={tag}>
+        <li
+          className={`${css.menuItem} ${isActive(tag) ? css.active : ""}`}
+          key={tag}
+        >
           <Link
             href={`/notes/filter/${tag === "All notes" ? "all" : tag}`}
             className={css.menuLink}
@@ -37,7 +40,7 @@ const SidebarNotes = () => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};
 
 export default SidebarNotes;
