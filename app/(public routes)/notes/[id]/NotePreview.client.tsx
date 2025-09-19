@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { fetchNoteById } from "@/lib/api";
 import css from "./NoteDetails.page.module.css";
 
-const NoteDetailsClient = () => {
+const NotePreview = () => {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 
@@ -20,10 +20,7 @@ const NoteDetailsClient = () => {
   });
 
   const handleGoBack = () => {
-    const isSure = confirm("Are you sure?");
-    if (isSure) {
-      router.back();
-    }
+    router.back();
   };
 
   if (isLoading) return <p>Loading, please wait...</p>;
@@ -46,4 +43,4 @@ const NoteDetailsClient = () => {
   );
 };
 
-export default NoteDetailsClient;
+export default NotePreview;

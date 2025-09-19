@@ -1,11 +1,10 @@
-import Modal from '@/components/Modal/Modal';
-import NoteDetailsClient from '@/app/(public routes)/notes/[id]/NoteDetails.client';
+import NoteDetailsClient from "@/app/(public routes)/notes/[id]/NotePreview.client";
+import Modal from "@/components/Modal/Modal";
 
 const NotePreview = async () => {
-
   return (
     <Modal>
-        <NoteDetailsClient />
+      <NoteDetailsClient />
     </Modal>
   );
 };
