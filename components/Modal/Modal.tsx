@@ -1,6 +1,5 @@
 "use client";
 
-import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import css from "./Modal.module.css";
 
@@ -18,7 +17,7 @@ const Modal = ({ children }: ModalProps) => {
     }
   };
 
-  return createPortal(
+  return (
     <div
       className={css.backdrop}
       role="dialog"
@@ -26,8 +25,7 @@ const Modal = ({ children }: ModalProps) => {
       onClick={handleBackdropClick}
     >
       <div className={css.modal}>{children}</div>
-    </div>,
-    document.body
+    </div>
   );
 };
 
