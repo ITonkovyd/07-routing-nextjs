@@ -1,5 +1,5 @@
-const Default = () => {
-  return null;
-}
+import SidebarNotes from "./SidebarNotes";
 
-export default Default;
+export default function Sidebar() {
+  return <SidebarNotes />;
+}
