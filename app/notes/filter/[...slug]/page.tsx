@@ -12,7 +12,7 @@ type Props = {
 export default async function FilterPage({ params }: Props) {
   const queryClient = new QueryClient();
   const { slug } = await params;
-  const selectedTag = slug?.at(0) === "all" ? null : slug?.at(0);
+  const selectedTag = slug?.at(0) === "All" ? null : slug?.at(0);
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

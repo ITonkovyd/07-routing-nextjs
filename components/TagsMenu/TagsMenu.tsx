@@ -5,10 +5,10 @@ import Link from "next/link";
 import { noteTag } from "@/types/note";
 import css from "./TagsMenu.module.css";
 
-type ValidTags = noteTag | "All notes";
+type ValidTags = noteTag | "All";
 
 const TAGS: ValidTags[] = [
-  "All notes",
+  "All",
   "Todo",
   "Work",
   "Personal",
@@ -30,7 +30,7 @@ const TagsMenu = () => {
           {TAGS.map((tag) => (
             <li key={tag} className={css.menuItem}>
               <Link
-                href={`/notes/filter/${tag === "All notes" ? "all" : tag}`}
+                href={`/notes/filter/${tag}`}
                 className={css.menuLink}
                 onClick={() => setIsOpen(false)}
               >
