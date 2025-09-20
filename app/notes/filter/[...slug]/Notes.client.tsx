@@ -29,6 +29,10 @@ const NotesClient = ({ tag }: NoteClientProps) => {
     placeholderData: keepPreviousData,
   });
 
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   useEffect(() => {
     if (!isError && data?.notes.length === 0) {
       toast.error("No notes found");
@@ -39,6 +43,7 @@ const NotesClient = ({ tag }: NoteClientProps) => {
     setSearchQuery(query);
     setPage(1);
   }, []);
+
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
@@ -56,8 +61,8 @@ const NotesClient = ({ tag }: NoteClientProps) => {
       </header>
       <main>{isSuccess && <NoteList notes={data.notes} />}</main>
       {isModalOpen && (
-        <Modal>
-          <NoteForm onClose={() => setIsModalOpen(false)} />
+        <Modal onClose={handleModalClose}>
+          <NoteForm onClose={handleModalClose} />
         </Modal>
       )}
       <Toaster />
