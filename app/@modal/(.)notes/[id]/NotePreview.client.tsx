@@ -2,8 +2,10 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
+import Modal from "@/components/Modal/Modal";
 import { fetchNoteById } from "@/lib/api";
-import css from "./NotePreview.page.module.css";
+import css from "./NotePreview.client.module.css";
+
 
 const NotePreview = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,19 +30,21 @@ const NotePreview = () => {
   if (error || !note) return <p>Something went wrong.</p>;
 
   return (
-    <div className={css.container}>
-      <button className={css.backBtn} onClick={handleGoBack}>
-        Back
-      </button>
-      <div className={css.item}>
-        <div className={css.header}>
-          <h2>{note.title}</h2>
+    <Modal onClose={handleGoBack}>
+      <div className={css.container}>
+        <button className={css.backBtn} onClick={handleGoBack}>
+          Back
+        </button>
+        <div className={css.item}>
+          <div className={css.header}>
+            <h2>{note.title}</h2>
+          </div>
+          <p className={css.content}>{note.content}</p>
+          <p className={css.date}>{note.createdAt || note.updatedAt}</p>
         </div>
-        <p className={css.content}>{note.content}</p>
-        <p className={css.date}>{note.createdAt || note.updatedAt}</p>
       </div>
-    </div>
-  );
+    </Modal>
+    );
 };
 
 export default NotePreview;
